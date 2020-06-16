@@ -10,7 +10,7 @@ const SignUpPage = () => {
   const [user, setUser] = React.useState(firebase.auth().currentUser);
   const [profile, setProfile] = React.useState("");
   const [city, setCity] = React.useState("");
-
+  console.log("hell")
   const handleGoogleAuthClick = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase

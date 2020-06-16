@@ -18,7 +18,8 @@ const ProfileBox = ({ city, imageUrl, name, profile, userId }) => {
 
 const FacebookPage = () => {
   const [profiles, setProfiles] = React.useState([]);
-  React.useEffect(async () => {
+  React.useEffect(() => {
+    const fetchProfiles = async () => {
     const profiles = await db
       .collection("profiles")
       .get()
@@ -26,7 +27,10 @@ const FacebookPage = () => {
         return querySnapshot.docs.map((doc) => doc.data());
       });
     setProfiles(profiles);
-  }, []);
+  }
+  fetchProfiles()
+}
+  , []);
   return (
     <div>
       {profiles.map((p) => (
